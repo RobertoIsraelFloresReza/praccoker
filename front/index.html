@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica api</title>
+</head>
+<body>
+    <h1>Fronton como le gustaba a huico pal api</h1>
+    <button id="llamarApi">llamar al backend</button>
+    
+    <script>
+        document.getElementById('llamarApi').addEventListener('click', async () => {
+            try {
+                const response = await fetch('http://localhost:8080/saludo');
+                const data = await response.text();
+                console.log('Respuesta del backend:', data);
+                alert('Mensaje del backend: ' + data );
+            } catch (error) {
+                console.error('Error al llamar al backend:', error);
+                alert('Error al conectar con el backend');
+            }
+        });
+    </script>
+</body>
+</html>
